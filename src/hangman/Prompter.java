@@ -20,6 +20,12 @@ public class Prompter {
         mGame = game;
     }
     
+    public void play() throws IOException{
+        while(mGame.getRemainingTries() > 0){
+            displayProgress();
+            promptForGuess();
+        }
+    }
     public boolean promptForGuess() throws IOException{
         BufferedReader theReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter a letter:  ");
@@ -28,6 +34,10 @@ public class Prompter {
         char guess = answer.charAt(0);
         return mGame.applyGuess(guess);
 
+    }
+    
+    public void displayProgress(){
+        System.out.printf("You have %d tries left to solve: %s\n", mGame.getRemainingTries(), mGame.getCurrentProgress());
     }
     
 }

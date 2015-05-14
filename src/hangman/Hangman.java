@@ -15,17 +15,15 @@ public class Hangman {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        // TODO code application logic here
+        //fever of 102 today. Not such a great day for coding. But the streak lives on...
         Game game = new Game("Noah's Game");
         Prompter prompter = new Prompter(game);
-        boolean isHit = prompter.promptForGuess();
-        if (isHit) {
-            System.out.println("We got a hit!");
-        } else {
-            System.out.println("That's a miss.");
-        }
+        prompter.play();
+       
+        
     }
 
 }
